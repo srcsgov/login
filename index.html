@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Enthusiasts Forum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #e0e0e0;
+            color: #222;
+        }
+        h2 {
+            color: #004080;
+            text-align: center;
+        }
+        .post {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        @keyframes flash {
+            0% { color: blue; }
+            100% { color: white; }
+        }
+    </style>
+    <script>
+        function checkPassword() {
+            let code = document.getElementById('secretCode').value;
+            if (code === 'AGARTHA1') {
+                document.getElementById('popup').style.display = 'block';
+                let countdown = 5;
+                let interval = setInterval(() => {
+                    document.getElementById('countdown').innerText = countdown + ' seconds remaining...';
+                    countdown--;
+                    if (countdown < 0) {
+                        clearInterval(interval);
+                        window.location.href = 'agartha.html';
+                    }
+                }, 1000);
+            } else {
+                alert('Incorrect code!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Latest Discussions</h2>
+    <div class="post"><strong>Best Automatic Watches for Beginners</strong><br>Discussing the best automatic watches suited for those new to the watch world. Learn about features, brands, and price points that make for a great first-time purchase.</div>
+    <div class="post"><strong>How to Maintain Your Mechanical Watch</strong><br>Learn the essential maintenance tips for keeping your mechanical watch in top shape. Covers cleaning, servicing, and daily wear considerations.</div>
+    <div class="post"><strong>Rolex vs. Omega: Which is Better?</strong><br>A detailed comparison between two of the most iconic luxury watch brands. Find out how they compare in terms of history, craftsmanship, resale value, and prestige.</div>
+    <div class="post"><strong>What Makes Swiss Watches Special?</strong><br>Explore the history and craftsmanship behind Swiss watches. Understand why they are considered the gold standard in watchmaking and what sets them apart.</div>
+    <div class="post"><strong>Top 10 Affordable Luxury Watches</strong><br>Looking for a luxury watch that won't break the bank? Here’s a list of high-quality timepieces that offer great value without compromising on prestige.</div>
+    
+    <h2>Help Guides</h2>
+    <div class="post"><strong>How to Change a Watch Strap</strong><br>A step-by-step guide on swapping out your watch strap, including tools needed and best practices to avoid damaging your timepiece.</div>
+    <div class="post" onclick="document.getElementById('secretInput').style.display='block'" style="cursor: pointer;"><strong>Understanding Watch Movements</strong><br>Breaking down the different types of watch movements—automatic, quartz, and manual—so you can make an informed decision on your next purchase.</div>
+    <div id="secretInput" style="display:none; margin-top: 10px;">
+        <input type="text" id="secretCode" placeholder="Enter Code">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+    <div class="post"><strong>Water Resistance Explained</strong><br>Learn the meaning behind water resistance ratings and what activities your watch can safely handle, from rain showers to deep-sea diving.</div>
+    <div class="post"><strong>How to Wind a Manual Watch</strong><br>A beginner-friendly guide on properly winding a manual watch to ensure accuracy and longevity.</div>
+    
+    <div id="popup">
+        <img src="agartha.png" alt="Agartha Symbol" width="200" height="200">
+        <h2 style="animation: flash 1s infinite alternate;">Good job... You are one of us</h2>
+        <p>Redirecting you to our secret Agarthian portal...</p>
+        <p id="countdown">5 seconds remaining...</p>
+    </div>
+</body>
+</html>
